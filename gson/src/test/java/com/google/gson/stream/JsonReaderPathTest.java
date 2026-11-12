@@ -198,7 +198,7 @@ public class JsonReaderPathTest {
   }
 
   @Test public void multipleTopLevelValuesInOneDocument() throws IOException {
-    assumeTrue(factory == Factory.STRING_READER);
+    assumeTrue("JsonTreeReader (OBJECT_READER) reads a single JsonElement tree, so multiple top-level values in one document only apply to the streaming STRING_READER", factory == Factory.STRING_READER);
 
     JsonReader reader = factory.create("[][]");
     reader.setLenient(true);
